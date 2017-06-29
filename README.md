@@ -22,7 +22,6 @@ ISSUES:
 3. I am unable to connect to `localhost:3000`
 
 
-
 Requirements:
 ```
 export BROWSERSTACK_USERNAME=<browserstack-username> &&

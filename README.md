@@ -5,25 +5,27 @@ Setting up:
 * Capybara
 * Browserstack
 
-AIM: Run RSpec feature tests locally on browserstack...
-
-Eventually: Get it working with CircleCI
-
-Browser Configs `config/browserstack/local.config.yml`
+AIM: Run RSpec feature specs locally on browserstacks remote browsers.
 
 Step 1: Get it working in local mode.
+
 Run the rake task which switches the capybara driver to use browserstack.
-To Run: `rake local`
+`rake local`
 
+The rake task simply sets `ENV['TEST_DRIVER'] = 'browserstack'`, this triggers in the `rails_helper.rb` to no longer use plain old selenium and the switch over to use browserstack.
 
-ISSUES: 
-1. The Feature tests fail.
-2. When I examine the video playback on browserstack.com I see "Unable to connect to the page!"
-3. I am unable to connect to `localhost:3000`
+The browser configuration for the remote browser that will be used is in `config/browserstack/local.config.yml`.
 
 
 Requirements:
+
+1. Setup a browserstack account.
+2. Export the required env variables.
 ```
 export BROWSERSTACK_USERNAME=<browserstack-username> &&
 export BROWSERSTACK_ACCESS_KEY=<browserstack-access-key>
 ```
+
+TODO:
+1. Parallel tests.
+2. Get it working with CircleCI

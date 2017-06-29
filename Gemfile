@@ -64,6 +64,8 @@ group :test do
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'browserstack-local' #browserstack
+  gem 'parallel_tests' #browserstack
   gem 'simplecov', require: false
   gem 'rubocop', require: false
 end

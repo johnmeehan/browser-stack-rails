@@ -1,0 +1,15 @@
+server: "hub-cloud.browserstack.com"
+user: <%= ENV["BROWSERSTACK_USERNAME"] %>
+key: <%= ENV["BROWSERSTACK_ACCESS_KEY"] %>
+
+common_caps:
+  "project": "RSpec_Capybara"
+  "build": "rspec-capybara-browserstack"
+  "browserstack.debug": true
+
+browser_caps:
+  -
+    "os": "Windows"
+    "os_version": "7"
+    "browser": "firefox"
+    "browserstack.local": true

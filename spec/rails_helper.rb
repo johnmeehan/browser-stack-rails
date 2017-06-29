@@ -86,7 +86,7 @@ if run_on_browserstack?
   end
 
   TASK_ID = (ENV['TASK_ID'] || 0).to_i
-  CONFIG_NAME = ENV['CONFIG_NAME'] || 'single'
+  CONFIG_NAME = ENV['CONFIG_NAME'] || 'local'
 
   CONFIG = YAML.load(File.read(File.join(File.dirname(__FILE__), "../config/browserstack/#{CONFIG_NAME}.config.yml")))
   CONFIG['user'] = ENV['BROWSERSTACK_USERNAME'] || CONFIG['user']
@@ -110,8 +110,9 @@ if run_on_browserstack?
   end
 
   Capybara.default_driver = :browserstack
-  Capybara.run_server = false
-  Capybara.app_host  = "http://localhost:3000"
+  Capybara.run_server = true #Whether start server when testing
+  Capybara.server_port = 3000
+  Capybara.app_host  = "http://127.0.0.1:3000"
 
   # Code to stop browserstack local after end of test
   at_exit do

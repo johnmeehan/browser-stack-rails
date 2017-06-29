@@ -55,12 +55,15 @@ gem 'haml-rails'
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem "chromedriver-helper"
+  gem "rb-fsevent", "0.9.8"
 end
 
 group :test do
-  gem 'database_cleaner'
   gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'simplecov', require: false
   gem 'rubocop', require: false
 end
